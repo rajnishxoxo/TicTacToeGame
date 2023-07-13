@@ -45,7 +45,9 @@ function handleClick(index){
        boxes[index].innerHTML=currentPlayer;
        //this is for Updating our Game Logic.
 
-       gameGrid[index]=currentPlayer
+       gameGrid[index]=currentPlayer;
+
+       boxes[index].style.pointerEvents = "none";
        
        swapPlayer();
 
