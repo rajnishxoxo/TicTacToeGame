@@ -57,7 +57,7 @@ function handleClick(index){
        
        swapPlayer();
 
-    //    checkGameOver();
+       checkGameOver();
 
     }
 }
@@ -87,7 +87,6 @@ newGameButton.addEventListener('click' , ()=>{
 
 
 function checkGameOver(){
-    console.log("Logic pending")
     
 }
 
