@@ -64,7 +64,7 @@
 }
 
 #btn{
-    display: block;
+    display: none;
     cursor: pointer;
     font-weight: 500;
     border-radius: 3px;
