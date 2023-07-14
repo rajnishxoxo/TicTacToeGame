@@ -54,7 +54,7 @@ function handleClick(index) {
 
     swapPlayer();
 
-    //    checkGameOver();
+       checkGameOver();
   }
 }
 
@@ -90,6 +90,20 @@ function checkGameOver() {
     const cellB = gameGrid[condition[1]];
     const cellC = gameGrid[condition[2]];
 
+    if(cellA=="" || cellB=="" || cellC==""){
+        continue;
+    }
+
+    if(cellA==cellB && cellB==cellC){
+        hasWon = true;
+        break
+    }
+
+  }
+
+  if(hasWon){
+
+    console.log("Won")
   }
 }
 
