@@ -54,7 +54,7 @@ function handleClick(index) {
 
     swapPlayer();
 
-       checkGameOver();
+    checkGameOver();
   }
 }
 
@@ -78,33 +78,42 @@ newGameButton.addEventListener("click", () => {
     boxes[index].style.pointerEvents = "all";
   });
   gameGrid = ["", "", "", "", "", "", "", "", ""];
+
+  boxes.classList.remove("win");
 });
 
 function checkGameOver() {
-
-    let hasWon = false;
+  let hasWon;
+  let winStatus;
 
   for (let i = 0; i < winningPosition.length; i++) {
-   let condition = winningPosition[i];
+    let condition = winningPosition[i];
     const cellA = gameGrid[condition[0]];
     const cellB = gameGrid[condition[1]];
     const cellC = gameGrid[condition[2]];
 
-    if(cellA=="" || cellB=="" || cellC==""){
-        continue;
+    if (cellA == "" || cellB == "" || cellC == "") {
+      continue;
     }
 
-    if(cellA==cellB && cellB==cellC){
-        hasWon = true;
-        break
-    }
+    if (cellA == cellB && cellB == cellC) {
+      if (gameGrid[condition[0]] == "X") {
+        hasWon = "X";
+        boxes[condition[0]].classList.add("win");
+        boxes[condition[1]].classList.add("win");
+        boxes[condition[2]].classList.add("win");
+      } else {
+        hasWon = "O";
+        boxes[condition[0]].classList.add("win");
+        boxes[condition[1]].classList.add("win");
+        boxes[condition[2]].classList.add("win");
+      }
 
+      break;
+    }
   }
 
-  if(hasWon){
-
-    console.log("Won")
+  if (winStatus) {
+    newGameButton.style.display = "block";
   }
 }
-
-checkGameOver();
