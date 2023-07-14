@@ -28,6 +28,9 @@ const startGame = (function initlizeGame() {
     boxes[index].style.pointerEvents = "all";
   });
   gameGrid = ["", "", "", "", "", "", "", "", ""];
+  
+
+
 })();
 
 //Step-2 : To add event listner to all the boxes.
@@ -77,9 +80,15 @@ newGameButton.addEventListener("click", () => {
     box.innerText = "";
     boxes[index].style.pointerEvents = "all";
   });
+
   gameGrid = ["", "", "", "", "", "", "", "", ""];
 
-  boxes.classList.remove("win");
+  boxes.forEach((box)=>{
+    if(box.classList.contains("win")){
+        box.classList.remove("win")
+    }
+  })
+
 });
 
 function checkGameOver() {
@@ -97,6 +106,8 @@ function checkGameOver() {
     }
 
     if (cellA == cellB && cellB == cellC) {
+        winStatus=true;
+
       if (gameGrid[condition[0]] == "X") {
         hasWon = "X";
         boxes[condition[0]].classList.add("win");
@@ -108,6 +119,10 @@ function checkGameOver() {
         boxes[condition[1]].classList.add("win");
         boxes[condition[2]].classList.add("win");
       }
+
+     boxes.forEach(function(box){
+        box.style.pointerEvents="none"
+     })
 
       break;
     }
