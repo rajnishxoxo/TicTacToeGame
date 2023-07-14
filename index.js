@@ -138,7 +138,7 @@ function checkGameOver() {
     }
   })
 
-  if(fillcount===9){
+  if(fillcount===9 && !winStatus){
     currentPlayerStatus.innerHTML = `Game is tie , No one Won 😖 `;
     newGameButton.style.display = "block";
   }
