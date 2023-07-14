@@ -20,7 +20,7 @@ const winningPosition =[
 
 //Step-1 : To initlize the Game.
 
-function initlizeGame(){
+ const startGame=(function initlizeGame(){
     currentPlayer ="X"
     currentPlayerStatus.innerHTML=`Current Player : ${currentPlayer}`
     boxes.forEach((box,index)=>{
@@ -29,9 +29,9 @@ function initlizeGame(){
        })
     gameGrid =["","","","","","","","",""]
 
-}
+})();
 
-initlizeGame();
+
 
 //Step-2 : To add event listner to all the boxes.
 
@@ -76,18 +76,18 @@ function swapPlayer(){
 
 
 newGameButton.addEventListener('click' , ()=>{
-    initlizeGame();
+    currentPlayer ="X"
+    currentPlayerStatus.innerHTML=`Current Player : ${currentPlayer}`
+    boxes.forEach((box,index)=>{
+        box.innerText=""
+        boxes[index].style.pointerEvents = "all";
+       })
+    gameGrid =["","","","","","","","",""]
 })
 
 
 function checkGameOver(){
-    // console.log(winningPosition[0])
-    const condition = winningPosition[0]
-    console.log(condition)
-
-  console.log(condition[0])
-  console.log(gameGrid[0])
+    console.log("Logic pending")
     
 }
 
-checkGameOver()
