@@ -28,9 +28,6 @@ const startGame = (function initlizeGame() {
     boxes[index].style.pointerEvents = "all";
   });
   gameGrid = ["", "", "", "", "", "", "", "", ""];
-  
-
-
 })();
 
 //Step-2 : To add event listner to all the boxes.
@@ -51,7 +48,7 @@ function handleClick(index) {
 
     gameGrid[index] = currentPlayer;
 
-    console.log(gameGrid);
+    // console.log(gameGrid);
 
     boxes[index].style.pointerEvents = "none";
 
@@ -83,12 +80,12 @@ newGameButton.addEventListener("click", () => {
 
   gameGrid = ["", "", "", "", "", "", "", "", ""];
 
-  boxes.forEach((box)=>{
-    if(box.classList.contains("win")){
-        box.classList.remove("win")
+  boxes.forEach((box) => {
+    if (box.classList.contains("win")) {
+      box.classList.remove("win");
     }
-  })
-
+  });
+  newGameButton.style.display = "none";
 });
 
 function checkGameOver() {
@@ -106,7 +103,7 @@ function checkGameOver() {
     }
 
     if (cellA == cellB && cellB == cellC) {
-        winStatus=true;
+      winStatus = true;
 
       if (gameGrid[condition[0]] == "X") {
         hasWon = "X";
@@ -120,9 +117,9 @@ function checkGameOver() {
         boxes[condition[2]].classList.add("win");
       }
 
-     boxes.forEach(function(box){
-        box.style.pointerEvents="none"
-     })
+      boxes.forEach(function (box) {
+        box.style.pointerEvents = "none";
+      });
 
       break;
     }
@@ -130,5 +127,21 @@ function checkGameOver() {
 
   if (winStatus) {
     newGameButton.style.display = "block";
+    currentPlayerStatus.innerHTML = `Winner is ${hasWon}`;
   }
+
+ 
+
+  gameGrid.forEach((index) => {
+    let count;
+    if (index !== " ") {
+      count++;
+    }
+    if (count == 9) {
+        console.log("Tied");
+        currentPlayerStatus.innerText = "Game is Tied";
+      }
+  });
+
+ 
 }
