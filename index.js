@@ -130,17 +130,16 @@ function checkGameOver() {
     currentPlayerStatus.innerHTML = `Winner is ${hasWon} 😍`;
   }
 
-  let fillcount=0 ;
+  let fillcount = 0;
 
-  gameGrid.forEach((box)=>{
-    if(box!=""){
-        fillcount++;
+  gameGrid.forEach((box) => {
+    if (box != "") {
+      fillcount++;
     }
-  })
+  });
 
-  if(fillcount===9 && !winStatus){
+  if (fillcount === 9 && !winStatus) {
     currentPlayerStatus.innerHTML = `Game is tie , No one Won 😖 `;
     newGameButton.style.display = "block";
   }
-
 }
