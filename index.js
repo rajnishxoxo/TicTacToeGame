@@ -127,7 +127,7 @@ function checkGameOver() {
 
   if (winStatus) {
     newGameButton.style.display = "block";
-    currentPlayerStatus.innerHTML = `Winner is ${hasWon}`;
+    currentPlayerStatus.innerHTML = `Winner is ${hasWon} 😍`;
   }
 
   let fillcount=0 ;
@@ -139,7 +139,7 @@ function checkGameOver() {
   })
 
   if(fillcount===9){
-    currentPlayerStatus.innerHTML = `Game is tie , No one Won :(`;
+    currentPlayerStatus.innerHTML = `Game is tie , No one Won 😖 `;
     newGameButton.style.display = "block";
   }
 
